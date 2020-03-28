@@ -1,0 +1,10 @@
+{
+
+  "block.examplemod.copperore": "Copper Ore",
+  "item.examplemod.copperingot": "Copper Ingot",
+  "item.examplemod.copperknife": "Copper Knife",
+  "item.examplemod.fiber": "Plant Fiber",
+  "block.examplemod.compressedcobble": "Compressed Cobble",
+  "itemGroup.examplemod": "Marcel's Mod"
+
+}

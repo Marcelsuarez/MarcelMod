@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient":{ "item": "examplemod:copperore"},
+   "result":  { "item": "examplemod:copperingot"},
+   "experience" : 0.8
+}
