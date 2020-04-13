@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "examplemod:block/arcanatable",
+    "down": "examplemod:block/arcanatable",
+    "up": "examplemod:block/arcanatable",
+    "east": "examplemod:block/arcanatable",
+    "west": "examplemod:block/arcanatable",
+    "north": "examplemod:block/arcanatable_front",
+    "south": "examplemod:block/arcanatable"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "examplemod:block/arcanatable"},
+    "facing=south": {"model": "examplemod:block/arcanatable", "y":180},
+    "facing=west": {"model": "examplemod:block/arcanatable", "y":270},
+    "facing=east": {"model": "examplemod:block/arcanatable", "y":90},
+    "facing=up": {"model": "examplemod:block/arcanatable", "x":90},
+    "facing=down": {"model": "examplemod:block/arcanatable", "x":90}
+
+  }
+
+}

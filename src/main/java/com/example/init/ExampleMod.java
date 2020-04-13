@@ -8,11 +8,17 @@ import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -36,6 +42,7 @@ public class ExampleMod
 {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 
     public ExampleMod() {
         
@@ -45,12 +52,14 @@ public class ExampleMod
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new MyEventHandler());
+        
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        proxy.init();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -84,14 +93,17 @@ public class ExampleMod
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event)  {
             event.getRegistry().register(new CopperOre());
             event.getRegistry().register(new CompressedCobble());
+            event.getRegistry().register(new ArcanaTable());
         }
          @SubscribeEvent
          public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-        	 Item.Properties properties = new Item.Properties().group(ModItems.itemGroup);
+        	 //Item.Properties properties = new Item.Properties().group(ModItems.itemGroup);
               event.getRegistry().register(new BlockItem(ModBlocks.COPPERORE, new Item.Properties().group(ModItems.itemGroup))
               .setRegistryName("copperore"));
               event.getRegistry().register(new BlockItem(ModBlocks.COMPRESSEDCOBBLE, new Item.Properties().group(ModItems.itemGroup))
               .setRegistryName("compressedcobble"));
+              event.getRegistry().register(new BlockItem(ModBlocks.ARCANATABLE, new Item.Properties().group(ModItems.itemGroup))
+              .setRegistryName("arcanatable"));
               event.getRegistry().register(new CopperIngot());
               event.getRegistry().register(new CopperKnife());
               event.getRegistry().register(new Fiber());
@@ -104,5 +116,28 @@ public class ExampleMod
     		
     		
          }
+         
+         @SubscribeEvent
+         public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event)
+         {
+        	 event.getRegistry().register(TileEntityType.Builder.create(ArcanaTableTile::new, ModBlocks.ARCANATABLE).build(null).setRegistryName("arcanatable"));
+         }
+         
+         @SubscribeEvent
+         public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event)
+         {
+        	 event.getRegistry().register(IForgeContainerType.create( (windowID, inv, data) ->
+        	 {
+        		 BlockPos pos = data.readBlockPos();
+        		 return new ArcanaTableContainer(windowID, pos, proxy.getClientWorld(), inv, proxy.getClientPlayer());
+        	 }).setRegistryName("arcanatable"));
+        	 
+        	 
+        	 
+        	 
+         }
+         
+         
+         
     }
 }

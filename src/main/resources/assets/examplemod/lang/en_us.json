@@ -1,10 +1,12 @@
 {
-
+  "itemGroup.examplemod": "Marcel's Mod",
   "block.examplemod.copperore": "Copper Ore",
   "item.examplemod.copperingot": "Copper Ingot",
   "item.examplemod.copperknife": "Copper Knife",
   "item.examplemod.fiber": "Plant Fiber",
   "block.examplemod.compressedcobble": "Compressed Cobble",
-  "itemGroup.examplemod": "Marcel's Mod"
+  "item.examplemod.diamondshears": "Diamond Shears",
+  "block.examplemod.arcanatable": "Arcana Table"
+
 
 }
