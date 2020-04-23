@@ -13,7 +13,7 @@ public class ModItems {
 		@Override
 		public ItemStack createIcon() 
 		{
-			return new ItemStack(ModBlocks.COPPERORE);
+			return new ItemStack(ModBlocks.ARCANATABLE);
 		}
 	};
 	
@@ -26,7 +26,14 @@ public class ModItems {
 	@ObjectHolder("examplemod:fiber")
 	public static Fiber FIBER;
 	
+	@ObjectHolder("examplemod:primalessence")
+	public static PrimalEssence PRIMALESSENCE;
+	
+	
 	@ObjectHolder("examplemod:diamondshears")
 	public static DiamondShears DIAMONDSHEARS;
+	
+	@ObjectHolder("examplemod:flamewand")
+	public static FlameWand FLAMEWAND;
 	
 }

@@ -1,5 +1,8 @@
 package com.example.init;
 import com.example.blocks.*;
+import com.example.blocks.arcanatable.ArcanaTable;
+import com.example.blocks.arcanatable.ArcanaTableContainer;
+import com.example.blocks.arcanatable.ArcanaTableTile;
 import com.example.items.*;
 import com.example.items.tooltypes.Knife;
 import com.example.list.*;
@@ -11,9 +14,13 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
@@ -59,9 +66,10 @@ public class ExampleMod
     {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        proxy.init();
+        proxy.init();  //important
     }
 
+    
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
@@ -94,6 +102,7 @@ public class ExampleMod
             event.getRegistry().register(new CopperOre());
             event.getRegistry().register(new CompressedCobble());
             event.getRegistry().register(new ArcanaTable());
+            event.getRegistry().register(new CopperBlock());
         }
          @SubscribeEvent
          public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
@@ -104,10 +113,15 @@ public class ExampleMod
               .setRegistryName("compressedcobble"));
               event.getRegistry().register(new BlockItem(ModBlocks.ARCANATABLE, new Item.Properties().group(ModItems.itemGroup))
               .setRegistryName("arcanatable"));
+              event.getRegistry().register(new BlockItem(ModBlocks.COPPERBLOCK, new Item.Properties().group(ModItems.itemGroup))
+              .setRegistryName("copperblock"));
               event.getRegistry().register(new CopperIngot());
               event.getRegistry().register(new CopperKnife());
               event.getRegistry().register(new Fiber());
+              event.getRegistry().register(new DiamondKnife());
               event.getRegistry().register(new DiamondShears());
+              event.getRegistry().register(new PrimalEssence());
+              event.getRegistry().register(new FlameWand());
                          
         }
          @SubscribeEvent
@@ -133,10 +147,9 @@ public class ExampleMod
         	 }).setRegistryName("arcanatable"));
         	 
         	 
-        	 
-        	 
          }
-         
+
+
          
          
     }

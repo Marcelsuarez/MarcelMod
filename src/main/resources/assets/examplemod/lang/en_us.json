@@ -4,9 +4,12 @@
   "item.examplemod.copperingot": "Copper Ingot",
   "item.examplemod.copperknife": "Copper Knife",
   "item.examplemod.fiber": "Plant Fiber",
+  "item.examplemod.primalessence": "Primal Essence",
   "block.examplemod.compressedcobble": "Compressed Cobble",
   "item.examplemod.diamondshears": "Diamond Shears",
-  "block.examplemod.arcanatable": "Arcana Table"
+  "block.examplemod.arcanatable": "Arcana Table",
+  "block.examplemod.copperblock" : "Copper Block",
+  "item.examplemod.flamewand" : "Wand of Flames"
 
 
 }

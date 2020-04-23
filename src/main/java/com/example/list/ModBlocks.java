@@ -2,6 +2,9 @@ package com.example.list;
 
 
 import com.example.blocks.*;
+import com.example.blocks.arcanatable.ArcanaTable;
+import com.example.blocks.arcanatable.ArcanaTableContainer;
+import com.example.blocks.arcanatable.ArcanaTableTile;
 
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.tileentity.TileEntityType;
@@ -15,6 +18,9 @@ public class ModBlocks
 	
 	@ObjectHolder("examplemod:compressedcobble")
 	public static CompressedCobble COMPRESSEDCOBBLE;
+	
+	@ObjectHolder("examplemod:copperblock")
+	public static CopperBlock COPPERBLOCK;
 	
 	@ObjectHolder("examplemod:arcanatable")
 	public static ArcanaTable ARCANATABLE;

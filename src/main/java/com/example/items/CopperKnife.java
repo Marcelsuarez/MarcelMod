@@ -16,7 +16,7 @@ public class CopperKnife extends Knife
 {
     public CopperKnife()
     {
-		super(ToolMaterialList.copper, 30);
+		super(ToolMaterialList.copper, 30, 2.0f);
 		setRegistryName("copperknife");
 	}
 

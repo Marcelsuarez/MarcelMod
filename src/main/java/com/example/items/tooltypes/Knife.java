@@ -29,9 +29,9 @@ public class Knife extends ToolItem {
 	
 	
 	
-	protected Knife(IItemTier tier, int extraDurability)
+	protected Knife(IItemTier tier, int extraDurability, float speed)
 	{
-		super(0.4f, 0.3f, tier, kblocks, new Properties()
+		super(0.2f, speed, tier, kblocks, new Properties()
 				.maxDamage(extraDurability + 100)
 				.group(ModItems.itemGroup));
 	}

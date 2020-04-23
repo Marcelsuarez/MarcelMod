@@ -1,8 +1,9 @@
-package com.example.blocks;
+package com.example.blocks.arcanatable;
 
 import com.example.init.ExampleMod;
 import com.mojang.blaze3d.platform.GlStateManager;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -28,6 +29,7 @@ public class ArcanaTableScreen extends ContainerScreen<ArcanaTableContainer>{
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+    	drawString(Minecraft.getInstance().fontRenderer, "Essence: " + container.getMana(), 43, 62, 0xffffff);
         
     }
 

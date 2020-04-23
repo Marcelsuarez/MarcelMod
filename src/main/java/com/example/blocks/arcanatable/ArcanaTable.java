@@ -1,4 +1,4 @@
-package com.example.blocks;
+package com.example.blocks.arcanatable;
 
 import javax.annotation.Nullable;
 
@@ -22,6 +22,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.items.CapabilityItemHandler;
 
 public class ArcanaTable extends Block {
 
@@ -80,7 +81,18 @@ public class ArcanaTable extends Block {
     }
     
     
-    
+    @Override
+    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.hasTileEntity() && state.getBlock() != newState.getBlock()) {
+            // drops everything in the inventory when destroyed
+            worldIn.getTileEntity(pos).getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+                for (int i = 0; i < h.getSlots(); i++) {
+                    spawnAsEntity(worldIn, pos, h.getStackInSlot(i));
+                }
+            });
+            worldIn.removeTileEntity(pos);
+        }
+    }
     
     
 }

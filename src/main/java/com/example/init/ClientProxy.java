@@ -1,6 +1,6 @@
 package com.example.init;
 
-import com.example.blocks.ArcanaTableScreen;
+import com.example.blocks.arcanatable.ArcanaTableScreen;
 import com.example.list.ModBlocks;
 
 import net.minecraft.client.Minecraft;
