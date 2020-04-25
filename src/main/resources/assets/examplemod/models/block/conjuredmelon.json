@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "examplemod:block/cmelon_top",
+        "side": "examplemod:block/cmelon_side"
+    }
+}

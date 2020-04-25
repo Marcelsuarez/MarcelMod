@@ -123,7 +123,7 @@ public class ArcanaTableTile extends TileEntity implements ITickableTileEntity, 
         
       
         
-        if (result.isEmpty() && ArcanaRecipeList.matchesRecipe(wandBase, gem, essence))
+        if (result.isEmpty() && ArcanaRecipeList.matchesRecipe(wandBase, gem, essence) && this.getMana() >= 100)
         {
         	ArcanaRecipeList recipe = ArcanaRecipeList.getMatchRecipe(wandBase, gem, essence);
         	final boolean insertOutput = h.insertItem(4, recipe.getResult(), true).isEmpty();
@@ -136,6 +136,7 @@ public class ArcanaTableTile extends TileEntity implements ITickableTileEntity, 
         		h.extractItem(0, 1, false); //instantly pulls out items because im too lazy to figure it out the traditional way
         		h.extractItem(1, 1, false);
         		h.extractItem(2, 1, false);
+        		this.substractMana(100);
         	}
         	
         }
@@ -153,6 +154,12 @@ public class ArcanaTableTile extends TileEntity implements ITickableTileEntity, 
 	 private int getMax() {
 	        return this.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getMaxEnergyStored).orElse(0);
 	    }
+	 
+	 
+	 public void substractMana(int value)
+	 {
+		this.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> ((ArcanaManaStorage)h).setMana(this.getMana() - value));
+	 }
 
 	@Override
 	public Container createMenu(int menu, PlayerInventory inv, PlayerEntity entity) {

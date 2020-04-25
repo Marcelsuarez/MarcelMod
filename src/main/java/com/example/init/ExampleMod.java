@@ -3,6 +3,7 @@ import com.example.blocks.*;
 import com.example.blocks.arcanatable.ArcanaTable;
 import com.example.blocks.arcanatable.ArcanaTableContainer;
 import com.example.blocks.arcanatable.ArcanaTableTile;
+import com.example.entities.FWFireball;
 import com.example.items.*;
 import com.example.items.tooltypes.Knife;
 import com.example.list.*;
@@ -11,6 +12,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -103,6 +106,7 @@ public class ExampleMod
             event.getRegistry().register(new CompressedCobble());
             event.getRegistry().register(new ArcanaTable());
             event.getRegistry().register(new CopperBlock());
+            event.getRegistry().register(new ConjuredMelon());
         }
          @SubscribeEvent
          public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
@@ -115,6 +119,8 @@ public class ExampleMod
               .setRegistryName("arcanatable"));
               event.getRegistry().register(new BlockItem(ModBlocks.COPPERBLOCK, new Item.Properties().group(ModItems.itemGroup))
               .setRegistryName("copperblock"));
+              event.getRegistry().register(new BlockItem(ModBlocks.CONJUREDMELON, new Item.Properties().group(ModItems.itemGroup))
+              .setRegistryName("conjuredmelon"));
               event.getRegistry().register(new CopperIngot());
               event.getRegistry().register(new CopperKnife());
               event.getRegistry().register(new Fiber());
@@ -122,6 +128,7 @@ public class ExampleMod
               event.getRegistry().register(new DiamondShears());
               event.getRegistry().register(new PrimalEssence());
               event.getRegistry().register(new FlameWand());
+              event.getRegistry().register(new MelonWand());
                          
         }
          @SubscribeEvent
@@ -144,11 +151,14 @@ public class ExampleMod
         	 {
         		 BlockPos pos = data.readBlockPos();
         		 return new ArcanaTableContainer(windowID, pos, proxy.getClientWorld(), inv, proxy.getClientPlayer());
-        	 }).setRegistryName("arcanatable"));
-        	 
-        	 
+        	 }).setRegistryName("arcanatable"));    	 
          }
 
+         public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event)
+         {
+        	
+        	            
+         }
 
          
          

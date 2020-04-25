@@ -3,13 +3,16 @@
   "block.examplemod.copperore": "Copper Ore",
   "item.examplemod.copperingot": "Copper Ingot",
   "item.examplemod.copperknife": "Copper Knife",
+  "item.examplemod.diamondknife": "Diamond Knife",
   "item.examplemod.fiber": "Plant Fiber",
   "item.examplemod.primalessence": "Primal Essence",
   "block.examplemod.compressedcobble": "Compressed Cobble",
   "item.examplemod.diamondshears": "Diamond Shears",
   "block.examplemod.arcanatable": "Arcana Table",
   "block.examplemod.copperblock" : "Copper Block",
-  "item.examplemod.flamewand" : "Wand of Flames"
+  "block.examplemod.conjuredmelon": "Conjured Melon",
+  "item.examplemod.flamewand" : "Wand of Flames",
+  "item.examplemod.melonwand" : "Melonizer"
 
 
 }

@@ -67,6 +67,8 @@ public class ArcanaTableContainer extends Container {
 	 public int getMana() {
 	        return tileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
 	    }
+	 
+
 	
 	
 	@Override

@@ -31,6 +31,9 @@ public class ModBlocks
 	@ObjectHolder("examplemod:arcanatable")
 	public static ContainerType<ArcanaTableContainer> ARCANATABLE_CONTAINER;
 	
+	@ObjectHolder("examplemod:conjuredmelon")
+	public static ConjuredMelon CONJUREDMELON;
+	
 	
 	
 	

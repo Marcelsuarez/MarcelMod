@@ -36,4 +36,7 @@ public class ModItems {
 	@ObjectHolder("examplemod:flamewand")
 	public static FlameWand FLAMEWAND;
 	
+	@ObjectHolder("examplemod:melonwand")
+	public static MelonWand MELONWAND;
+	
 }
