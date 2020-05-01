@@ -1,6 +1,7 @@
 package com.example.blocks.arcanatable;
 
 import java.util.Optional;
+import java.util.Random;
 
 import javax.annotation.Nonnull;
 
@@ -21,8 +22,12 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
@@ -120,8 +125,8 @@ public class ArcanaTableTile extends TileEntity implements ITickableTileEntity, 
         ItemStack essence = h.getStackInSlot(2);
         ItemStack result = h.getStackInSlot(4);
 
-        
-      
+        //System.out.println(wandBase.getItem().toString());
+       // System.out.println("Recipe matches:" + ArcanaRecipeList.matchesRecipe(wandBase, gem, essence));
         
         if (result.isEmpty() && ArcanaRecipeList.matchesRecipe(wandBase, gem, essence) && this.getMana() >= 100)
         {
@@ -136,6 +141,10 @@ public class ArcanaTableTile extends TileEntity implements ITickableTileEntity, 
         		h.extractItem(0, 1, false); //instantly pulls out items because im too lazy to figure it out the traditional way
         		h.extractItem(1, 1, false);
         		h.extractItem(2, 1, false);
+        		World world = this.getWorld();
+        		BlockPos pos = this.getPos();
+        		 world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_WITHER_SPAWN
+ 		        		,SoundCategory.BLOCKS, 1.0F, new Random().nextFloat() * 0.4F + 0.8F, false);
         		this.substractMana(100);
         	}
         	

@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 public class FlameWand extends Wand {
 
 	public FlameWand() {
-		super();
+		super(100);
 		setRegistryName("flamewand");
 		
 	}
@@ -34,7 +34,8 @@ public class FlameWand extends Wand {
 		    
 				ItemStack stack =playerIn.getHeldItemMainhand();
 				Item wand = (Item) playerIn.getHeldItemMainhand().getItem(); 
-				wand.setDamage(stack, wand.getDamage(stack) + 2);	
+				//wand.setDamage(stack, wand.getDamage(stack) + 1);	
+				((Wand)wand).damageWand(playerIn);
 	        	Vec3d playerpos = playerIn.getLook(1.0F);
 	        	Vec3d targetpos = playerpos.scale(5.0);		//vector math woooo
 	          

@@ -12,7 +12,8 @@ import com.example.list.*;
 
 public enum ArcanaRecipeList
 {
-	flameWandRecipe(Items.BLAZE_ROD, Items.DIAMOND, ModItems.PRIMALESSENCE, ModItems.FLAMEWAND);
+	flameWandRecipe(Items.BLAZE_ROD, ModItems.ARCANAGEM, ModItems.PRIMALESSENCE, ModItems.FLAMEWAND),
+	melonWandRecipe(Items.STICK, ModItems.ARCANAGEM, ModItems.FRUCTALESSENCE, ModItems.MELONWAND);
 	
 	private final ItemStack wandBase;
 	private final ItemStack gem;
@@ -60,8 +61,14 @@ public enum ArcanaRecipeList
 		
 		for (ArcanaRecipeList recipe : recipes)
 		{
-			return (wandBase.getItem() == recipe.getBase().getItem()) &&
+			boolean match =  (wandBase.getItem() == recipe.getBase().getItem()) &&
 					(gem.getItem() == recipe.getGem().getItem()) && (essence.getItem() == recipe.getEssence().getItem());
+			
+			if (match)
+			{
+				return true;
+			}
+			
 		}
 		
 		return false;

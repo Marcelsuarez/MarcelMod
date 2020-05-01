@@ -29,6 +29,11 @@ public class ModItems {
 	@ObjectHolder("examplemod:primalessence")
 	public static PrimalEssence PRIMALESSENCE;
 	
+	@ObjectHolder("examplemod:fructalessence")
+	public static FructalEssence FRUCTALESSENCE;
+	
+	@ObjectHolder("examplemod:arcanagem")
+	public static ArcanaGem ARCANAGEM;
 	
 	@ObjectHolder("examplemod:diamondshears")
 	public static DiamondShears DIAMONDSHEARS;
@@ -38,5 +43,8 @@ public class ModItems {
 	
 	@ObjectHolder("examplemod:melonwand")
 	public static MelonWand MELONWAND;
+	
+	@ObjectHolder("examplemod:jumpwand")
+	public static JumpWand JUMPWAND;
 	
 }

@@ -12,7 +12,10 @@
   "block.examplemod.copperblock" : "Copper Block",
   "block.examplemod.conjuredmelon": "Conjured Melon",
   "item.examplemod.flamewand" : "Wand of Flames",
-  "item.examplemod.melonwand" : "Melonizer"
+  "item.examplemod.melonwand" : "Melonizer",
+  "item.examplemod.jumpwand": "Wand of Leaping",
+  "item.examplemod.arcanagem": "Arcana Gem",
+  "item.examplemod.fructalessence": "Fructal Essence"
 
 
 }

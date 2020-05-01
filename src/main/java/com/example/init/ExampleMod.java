@@ -129,6 +129,9 @@ public class ExampleMod
               event.getRegistry().register(new PrimalEssence());
               event.getRegistry().register(new FlameWand());
               event.getRegistry().register(new MelonWand());
+              event.getRegistry().register(new FructalEssence());
+              event.getRegistry().register(new ArcanaGem());
+              event.getRegistry().register(new JumpWand());
                          
         }
          @SubscribeEvent

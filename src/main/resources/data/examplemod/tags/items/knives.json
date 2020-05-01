@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "examplemod:copperknife"
+    "examplemod:copperknife",
+    "examplemod:diamondknife"
   ]
 }
