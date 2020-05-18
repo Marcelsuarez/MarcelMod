@@ -43,14 +43,14 @@ public class MelonWand extends Wand
 		          Block checkAir = world.getBlockState(position).getBlock();
 		          if (checkAir == Blocks.AIR || checkAir == Blocks.CAVE_AIR || checkAir == Blocks.VOID_AIR)
 		          {
-					ItemStack wandItem =playerIn.getHeldItemMainhand();
 					Item wand = (Item) playerIn.getHeldItemMainhand().getItem(); 
-					wand.setDamage(wandItem, wand.getDamage(wandItem) + 1);
+					//wand.setDamage(wandItem, wand.getDamage(wandItem) + 1);
+					((Wand) wand).damageWand(playerIn);
 		        	  monster.remove();
 		        	  IParticleData particle = ParticleTypes.HAPPY_VILLAGER;
 		        	  world.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_CHICKEN_EGG
 				        		,SoundCategory.BLOCKS, 0.8F, random.nextFloat() * 0.4F + 0.8F);
-		        	  world.addParticle(particle, position.getX(), position.getY(), position.getZ(),1.0, 1.0, 1.0);
+		        	  world.addParticle(particle, position.getX(), position.getY(), position.getZ(),2.0, 2.0, 2.0);
 		        	  world.addParticle(particle, position.down().getX(), position.down().getY(), position.down().getZ(),1.0, 1.0, 1.0);
 		        	  world.setBlockState(position, ModBlocks.CONJUREDMELON.getDefaultState());
 		          }

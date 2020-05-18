@@ -47,4 +47,7 @@ public class ModItems {
 	@ObjectHolder("examplemod:jumpwand")
 	public static JumpWand JUMPWAND;
 	
+	@ObjectHolder("examplemod:radarwand")
+	public static RadarWand RADARWAND;
+	
 }

@@ -7,6 +7,8 @@ import com.example.entities.FWFireball;
 import com.example.items.*;
 import com.example.items.tooltypes.Knife;
 import com.example.list.*;
+import com.example.worldgen.OreGen;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
@@ -28,6 +30,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -100,6 +103,18 @@ public class ExampleMod
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
+    	
+    	
+    	@SubscribeEvent
+        public static void onCommonSetup(final FMLCommonSetupEvent event)
+        {
+    			OreGen.setupOreGen();
+    			 LOGGER.info("Hello from world gen common setup");
+        } 
+    	
+    	
+    	
+    	
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event)  {
             event.getRegistry().register(new CopperOre());
@@ -132,6 +147,9 @@ public class ExampleMod
               event.getRegistry().register(new FructalEssence());
               event.getRegistry().register(new ArcanaGem());
               event.getRegistry().register(new JumpWand());
+              event.getRegistry().register(new RadarWand());
+              event.getRegistry().register(new ArcanumPick());
+              event.getRegistry().register(new ArcanumAxe());
                          
         }
          @SubscribeEvent

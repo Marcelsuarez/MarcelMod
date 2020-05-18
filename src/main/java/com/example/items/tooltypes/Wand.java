@@ -35,7 +35,6 @@ public class Wand extends Item{
 		if (this.getDamage(stack) >= this.getMaxDamage(stack))
 		{
 			World world = player.getEntityWorld();
-			System.out.println("reached");
 			world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ITEM_BREAK
 	        		,SoundCategory.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
 			//player.sendBreakAnimation(EquipmentSlotType.MAINHAND);
